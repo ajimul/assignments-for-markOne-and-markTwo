@@ -1,0 +1,52 @@
+// ex13: put a list of questions together
+// ex14: club everything to make the game
+
+        const { question } = require('readline-sync');
+var user = require('readline-sync');
+        var getUser = user.question("What is your name?");
+        var score=0;
+        console.log("Welcome " + getUser + "!");
+
+       function play(ask, answere)
+        {
+          var user1 = require('readline-sync');
+            var getAnswer = user1.question(ask);
+            if (getAnswer === answere) {
+                console.log("right");
+                score=score+1;
+                console.log("Your Score is : "+score);
+              console.log("-----------------------------------")
+              
+            } else {
+                console.log("wrong");
+            }
+            console.log("Current Score : "+score);
+        }
+/*play("who is the winner of fifa world cup 2022 ?  ","Argentina");
+play("who is the winner man of fifa world cup 2022 ?  ","Messi");*/
+
+// pass object type parameter into function
+/* var ask1={
+  question:"who is the winner of fifa world cup 2022 ?  ",
+    answer:"Argentina",
+}
+var ask2={
+  question:"who is the winner man of fifa world cup 2022 ?  ",
+    answer:"Messi",
+}
+play(ask1.question,ask1.answer);
+play(ask2.question,ask2.answer);*/
+
+
+var questionn=[
+{  question:"who is the winner of fifa world cup 2022 ?  ",
+     answer:"Argentina"},
+{  question:"who is the winner man of fifa world cup 2022 ?  ",
+     answer:"Messi",}]
+// pass object type parameter into function by using for loop
+for(var i=0;i<questionn.length;i++){
+  play(questionn[i].question,questionn[i].answer);
+
+}
+  console.log("-----------------------------------")
+console.log("The Final Score "+score);
