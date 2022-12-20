@@ -1,31 +1,150 @@
-// ex13: put a list of questions together
-// ex14: club everything to make the game
+// -----------------------------------------------ex01---------------------------------------------
+/* ex01: output your name*/
 
-        const { question } = require('readline-sync');
+// print to the console
+console.log("Ajimul Haque");
+
+// -----------------------------------------------ex02-04---------------------------------------------
+/*ex02: read the name of your user
+ex03: welcome your user
+ex04: do it all together*/
+
+// get input from the user on console
 var user = require('readline-sync');
-        var getUser = user.question("What is your name?");
-        var score=0;
-        console.log("Welcome " + getUser + "!");
+console.log("Welcome! " + user.question("Name Please!"));
 
-       function play(ask, answere)
-        {
-          var user1 = require('readline-sync');
-            var getAnswer = user1.question(ask);
-            if (getAnswer === answere) {
-                console.log("right");
-                score=score+1;
-                console.log("Your Score is : "+score);
-              console.log("-----------------------------------")
-              
-            } else {
-                console.log("wrong");
-            }
-            console.log("Current Score : "+score);
-        }
+// ------------------------------------------------ex05-06--------------------------------------------
+/*ex05: print right/wrong if greater than 25
+ex06: increment score if the right answer*/
+
+// using if else
+const { question } = require('readline-sync');
+var user = require('readline-sync');
+var age = user.question("Enter Your Age To Fun!");
+var score = 0;
+if (age > 25) {
+  score = score + 1;
+  console.log("right!" + age);
+  console.log("Your Score is: " + score);
+}
+else {
+  console.log("wrong!" + age);
+  score = 0;
+  console.log("Your Score is: " + score);
+}
+
+// ---------------------------------------------------ex07------------------------------------------
+/*ex07: function to add two numbers*/
+
+// using function
+function addNumber(number1, number2) {
+  return number1 + number2;
+}
+var result = addNumber(5, 5);
+console.log("The Addition of 1st Number and 2nd Number is= " + result);
+
+// ------------------------------------------------ex08---------------------------------------------
+/*ex08: function to check the answer*/
+
+// function with if else condition
+var user = require('readline-sync');
+
+var score = 0;
+
+function play(question, answer) {
+
+  var getAnswer = user.question(question);
+
+  if (getAnswer === answer) {
+    console.log("Your are rigth!")
+  }
+  else {
+    console.log("Your are wrong!")
+  }
+}
+
+// call the function
+play("A For :", "Apple");
+
+// --------------------------------------------------ex09-------------------------------------------
+/*ex09: print your name 5 times*/
+
+// using for loop
+for (var i = 0; i < 5; i++) {
+  console.log(i + 1 + ") My Name  Is  Ajimul Haque");
+}
+console.log("\n\n");
+
+// -----------------------------------------------------ex10-11----------------------------------------
+/*Home Work*/
+
+// pattern print using nested forloop
+var printer = "";
+for (var i = 0; i < 5; i++) {
+  for (var j = 0; j <= i; j++) {
+    printer += "*";
+  }
+  console.log(printer);
+}
+
+/*ex10: list grocery items to buy
+ex11: print every item on the list*/
+
+// print array element using for loop
+var arrayListItem = ["Tost", "Rice", "Milk"]
+for (var i = 0; i < arrayListItem.length; i++) {
+  console.log(arrayListItem[i]);
+}
+
+// ---------------------------------------------------ex12------------------------------------------
+/*ex12: club info about a superhero together*/
+
+// genaric variable(objects)
+var suzuki = {
+  name: "gixxer",
+  color: "blue",
+  cc: 155,
+}
+var yamaha = {
+  name: "fz",
+  color: "navi-blue",
+  cc: 150,
+}
+console.log("The Stonger Bike is: " + suzuki.name);
+console.log(suzuki.cc > yamaha.cc);
+
+// ---------------------------------------------------ex13-15------------------------------------------
+/* ex13: put a list of questions together
+ ex15: club everything to make the game*/
+
+//  getting input from user to making fun game
+const { question } = require('readline-sync');
+var user = require('readline-sync');
+var getUser = user.question("What is your name?");
+var score = 0;
+console.log("Welcome " + getUser + "!");
+
+// declaration function
+// if else use inside function
+function play(ask, answere) {
+  var user1 = require('readline-sync');
+  var getAnswer = user1.question(ask);
+  if (getAnswer === answere) {
+    console.log("right");
+    score = score + 1;
+    console.log("Your Score is : " + score);
+    console.log("-----------------------------------")
+
+  } else {
+    console.log("wrong");
+  }
+  console.log("Current Score : " + score);
+}
+// direct string pass into the fuction
 /*play("who is the winner of fifa world cup 2022 ?  ","Argentina");
 play("who is the winner man of fifa world cup 2022 ?  ","Messi");*/
 
-// pass object type parameter into function
+// pass object type parameter into the function
 /* var ask1={
   question:"who is the winner of fifa world cup 2022 ?  ",
     answer:"Argentina",
@@ -37,16 +156,20 @@ var ask2={
 play(ask1.question,ask1.answer);
 play(ask2.question,ask2.answer);*/
 
-
-var questionn=[
-{  question:"who is the winner of fifa world cup 2022 ?  ",
-     answer:"Argentina"},
-{  question:"who is the winner man of fifa world cup 2022 ?  ",
-     answer:"Messi",}]
+//create an object type is array
+var questionn = [
+  {
+    question: "who is the winner of fifa world cup 2022 ?  ",
+    answer: "Argentina"
+  },
+  {
+    question: "who is the winner man of fifa world cup 2022 ?  ",
+    answer: "Messi",
+  }]
 // pass object type parameter into function by using for loop
-for(var i=0;i<questionn.length;i++){
-  play(questionn[i].question,questionn[i].answer);
+for (var i = 0; i < questionn.length; i++) {
+  play(questionn[i].question, questionn[i].answer);
 
 }
-  console.log("-----------------------------------")
-console.log("The Final Score "+score);
+console.log("-----------------------------------")
+console.log("The Final Score " + score);
